@@ -35,7 +35,7 @@ HEIGHT = 650
 # Default screensaver settings
 app_name = 'Tk Boids'
 app_version = '1.0.0'
-app_url = 'https://github.com/beotiger'
+app_url = 'https://github.com/beotiger/tk-screensavers'
 app_date = '2024-03-22'
 app_authors = 'Beotiger & co.'
 app_license = 'MIT'

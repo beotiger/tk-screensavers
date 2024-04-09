@@ -9,7 +9,7 @@ Why have I chosen Save-O-Clock? Hmmmmm, I just downloaded it, learned a bit code
 
 It is a project to make and use screensavers for `Windows(tm)` particularly. Note `s` at the end of word `screensavers` - that is. I wanted not just write one screensaver and use it as usual, but have a bunch of customizable screensavers that could be easily written in `Python` language and used anywhere on `Windows(tm)` systems in order to form a large neverending animation cycling on your desktop while you speak on your phone or drink a cup of coffee.
 
-And this project - [Tk Screensavers]() - let you do this!
+And this project - [Tk Screensavers](https://github.com/beotiger/tk-screensavers) - let you do this!
 
 # Adding your own screensaver
 

@@ -21,7 +21,7 @@ WIDTH, HEIGHT = 800, 600
 app_name = 'Crazy chars'
 app_version = '1.0'
 app_authors = 'Beotiger & co.'
-app_url = 'https://github.com/beotiger'
+app_url = 'https://github.com/beotiger/tk-screensavers'
 # For the sake of history add date of birth or finishing of your screensaver here
 app_date = '2024-04-04'
 app_license = 'MIT'
