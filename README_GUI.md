@@ -13,7 +13,7 @@ Some more information about each screensaver module you may find in each source 
 
 ## Main GUI window.
 
-![Tk Screensavers GUI window](images/tkscrsavers_gui1.png "Main GUI window")
+![Tk Screensavers GUI window](images/tkscrsavers_gui1.jpg "Main GUI window")
 
 ## Available modules
 
@@ -45,7 +45,7 @@ Buttons to the right from `Active modules` listbox:
 
 Treeview `Module options` allows you to edit options for currently selected in combobox or listbox module. All modules have their unique set of options which you can find in [README_savers.md](README_savers.md) file or in source files in `screensavers` folder under `app_options` variable.
 
-![Tk Screensavers edit option](images/tkscrsavers_gui2.png "Edit option")
+![Tk Screensavers edit option](images/tkscrsavers_gui2.jpg "Edit option")
 
 When you click twice by mouse or press `Enter` key on any option there then the new dialog window opens to let you edit it. If option is a color type there is a color chooser button right to its value entry.
 
