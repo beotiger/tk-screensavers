@@ -1,0 +1,9 @@
+{
+	"files.exclude": {
+			// "**/.git": true,
+			"**/*.pyc": true,
+			"**/__pycache__": true,
+			"**/build": true,
+			"**/dist": true
+	}
+}
