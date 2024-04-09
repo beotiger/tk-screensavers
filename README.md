@@ -53,15 +53,6 @@ I tried it one time but could not get it working on my system with current `Pyth
 
 See [README_pipenv.md](README_pipenv.md) file for detailed instructions using `pipenv`.
 
-Or you can choose not to use pipenv, and install all needed dependencies from requrements.txt file:
-```sh
-python -m pip install -r requirements.txt
-```
-
-But it is not recommended way.
-
-There is only needed excerpts to use `pipenv` in our project.
-
 Run this command:
 
 ```bash
@@ -191,7 +182,7 @@ To check screensavers from system wide:
 4. Click the `Screen saver settings` link.
 
 Note that when you use these steps our `tkscrsavers` screensaver can disappear from global screensavers list.
-Or it can disappear from there for no reason. In such a case we should install it again. To do this just explore your `.\dist\tkscrsavers` folder, right click on `tkscrsavers.scr` file, choose `Install` option and `OK` button then. Our screensaver should be active then again.
+Or it can disappear from there for no reason - if we did not use install.bat script to copy onefile installation in `C:\Windows\System32` folder. In such a case we should install it again. To do this just explore your `.\dist\tkscrsavers` folder, right click on `tkscrsavers.scr` file, choose `Install` option and `OK` button then. Our screensaver should be active then again.
 
 To ensure which is the current screensaver set in your system right now you can run the following command from console or through `Win+R` key combination using [Miscrosoft(tm) Powershell](https://en.wikipedia.org/wiki/PowerShell):
 

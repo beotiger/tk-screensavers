@@ -26,8 +26,7 @@ Then install pipenv if you do not have done it yet.
 pip install --user pipenv
 ```
 
-We use special folder `.venv` in our project directory to accumalate all dependencies and use it to have access to our virtual environment directly.
-Also we can point `VS Code editor` to use it to run our `Python` scripts with `pipenv` so that it have access to concrete path and can use intellisense to find all needed dependencies.
+Also we should point `VS Code editor` to use appropriate interpretator (`F1` - `Python: Select Interpreter`) to run our `Python` scripts with `pipenv` so that it have access to concrete path and can use intellisense to find all needed dependencies.
 
 After successful installing `pipenv` run this command:
 
