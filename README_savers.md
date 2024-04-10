@@ -2,11 +2,11 @@
 
 While testing module you can use the following keys:
 
-`ESC` - close module (quit).
-`Space bar` - pause/unpause module animation.
-`F11` - toggle full screen mode on/off.
+* `ESC` - close module (quit).
+* `Space bar` - pause/unpause module animation.
+* `F11` - toggle full screen mode on/off.
 
-Also some modules let you do more actions such as add new object or follow it (Tk boids and Steering by left/right mouse click respectively) and so on.
+Also some modules let you do more actions such as add new object or follow it (`Tk boids` and `Steering` by left/right mouse click respectively) and so on.
 
 More information about each screensaver module you may find in each source file `docstrings`.
 
