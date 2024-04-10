@@ -194,9 +194,13 @@ It should launch current screensaver immediately.
 
 # Folder structure and common files
 
-## settings.json, tkscrsvr.ico, MS Mincho.ttf, tkscrsavers_log.txt
+## settings.json (tkscrsavers.json), tkscrsvr.ico, MS Mincho.ttf, tkscrsavers_log.txt
 
-All modules settings are placed in file `settings.json` in [JSON](https://www.json.org/json-en.html) format. It has the following structure:
+All modules settings are placed in file **settings.json** in [JSON](https://www.json.org/json-en.html) format.
+Its name is **tkscrsavers.json** in current user home directory when compiled/installed version of `tkscrsavers.py` used.
+
+It has the following structure:
+
 ```json
 {
 "module1":
@@ -228,24 +232,34 @@ All modules settings are placed in file `settings.json` in [JSON](https://www.js
 }
 ```
 
-Also there is an `ico` file representing an icon for application GUI (`tkscrsvr.ico`) and font file `MS Mincho.ttf` which is used by `matrix.py` module and is available on any `Microsoft Windows(tm)` system along with all its fonts.
+Also there is an `ico` file representing an icon for application GUI (`tkscrsvr.ico`) and font file `MS Mincho.ttf` which is used by `crazychars.py` and `matrix.py` modules and is available on any `Microsoft Windows(tm)` system along with all its fonts.
 
-When application is frozen (i.e. bundled by `pyinstaller`) all these three files are avalailable in folder `.\dist\tkscrsavers\_internal` for read and write.
+When application is frozen by `onedir` installation (i.e. bundled by `pyinstaller` through `onedir` variant) all these files are avalailable in folder `.\dist\tkscrsavers\_internal` for read and write.
 
-`tkscrsavers_log.txt` keeps all log messages from `tkscrsavers.py` and `tkscrsavgui.py` and can be removed any time peacefully.
+**tkscrsavers_log.txt** keeps all log messages from `tkscrsavers.py` and `tkscrsavgui.py` and can be removed any time peacefully. It is located in current user home directory when we use compiled/installed version of `tkscrsavers.py`.
 
 ## Extra files for this project
 
 `.vscode` - folder for inner VS Code settings if any and file `launch.json` for launching `.py` files from `VS Code editor`.
+
 `.gitignore` - to list files and folders that are not to be processed by `Git` while comitting.
-`build_spec.bat` - Windows(tm) batch file to make `tkscrsavers.spec` file if it is not there yet. Do not run this file for there is some steps needed to modify `tkscrsavers.spec` for proper working.
+
 `build.bat` - Windows(tm) batch file to compile `*.py` files into one project under `.\dist\` folder. Use it when you changed something in `*.py` code and/or added new modules into `screensavers` folder. When you add modules into `screensavers` folder do not forget to run `tkscrsavers.py` with `/d` parameter to add theses new modules into available modules list.
+
+`install.bat` - run this file to copy `tkscrsavers.scr` file from .\dist folder to `C:\Windows\System32` folder where system can ever it found as its screensaver.
+
 `MS Mincho.ttf` - this font is for `matrix.py` module. This font should be available in your Windows(tm) system for free any way and is there only for some hidden purposes. See [MS Mincho.ttf](https://learn.microsoft.com/en-us/typography/font-list/ms-mincho) for details regarding this font.
+
 `Pipfile` - do not know what is it yet. But have some clues)
-`README.md` - this file.
-`settings.json` - all screensavers settings used when testing and running modules from development project. It will we in `.\dist\tkscrsavers\_internal` folder after project compiling, as mentioned above.
+
+`settings.json` - all screensavers settings used when testing and running modules from development project. It will we in `.\dist\tkscrsavers\_internal` folder after project compiling in `onedir` variation, as mentioned above. Or it is named as `tkscrsavers.json` in current user home folder when we use compiled/installed version of `Tk Scrsavers` application!
+
 `tkscrsavers_log.txt` - log file for testing
+
 `tkscrsavers.spec` - .spec file for `pyinstaller` to compile whole project into independent Windows(tm) executable application. See some notes above about it.
+
+`tkscrsavers_onedir.spec` - like `tkscrsavers.spec` but it is used for `onedir` installation (see above).
+
 `tkscrsvr.ico` - ICO file 32x32 pixels in size to use as a main icon for Settings GUI application and can be used by any module.
 
 ## Source project files
