@@ -48,7 +48,7 @@ app_options = {
 		# Boid represantation: 'boid', 'ball', 'any'
 		'vid': 'boid',
 		# Number of boids: 'low', 'medium', 'high'
-		'density': 'low',
+		'density': 'medium',
 		# Or use this precise number (if 0 density will be used)
 		'numboids': 0,
 		# Max speed of boids

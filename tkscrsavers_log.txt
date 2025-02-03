@@ -14,3 +14,22 @@
 [2024-04-09 18:33:50] (tkscrsavers:INFO) Program starts with parameters: ['D:\\git\\2024\\tk-screensavers\\tkscrsavers.py']
 [2024-04-09 18:33:50] (tkscrsavers:INFO) Looking for settings file D:\git\2024\tk-screensavers\settings.json...
 [2024-04-09 18:33:50] (tkscrsavers:INFO) Settings read successfully!
+[2025-01-21 00:38:37] (tkscrsavers:INFO) Program starts with parameters: ['tkscrsavers.py', '/d']
+[2025-01-21 00:38:37] (tkscrsavers:INFO) Looking for settings file D:\git\2024\tk-screensavers\settings.json...
+[2025-01-21 00:38:37] (tkscrsavers:INFO) Settings read successfully!
+[2025-01-21 00:38:37] (tkscrsavers:INFO) Using development mode!
+[2025-01-21 00:39:08] (tkscrsavgui:INFO) Saving settings into file D:\git\2024\tk-screensavers\settings.json
+[2025-01-21 00:39:08] (tkscrsavgui:INFO) Saving settings successful!
+[2025-01-21 00:39:11] (tkscrsavers:INFO) Program starts with parameters: ['tkscrsavers.py', '/d']
+[2025-01-21 00:39:11] (tkscrsavers:INFO) Looking for settings file D:\git\2024\tk-screensavers\settings.json...
+[2025-01-21 00:39:11] (tkscrsavers:INFO) Settings read successfully!
+[2025-01-21 00:39:11] (tkscrsavers:INFO) Using development mode!
+[2025-02-03 11:45:49] (tkscrsavers:INFO) Program starts with parameters: ['D:\\git\\2024\\tk-screensavers\\tkscrsavers.py', '/d']
+[2025-02-03 11:45:49] (tkscrsavers:INFO) Looking for settings file D:\git\2024\tk-screensavers\settings.json...
+[2025-02-03 11:45:49] (tkscrsavers:INFO) Settings read successfully!
+[2025-02-03 11:45:49] (tkscrsavers:INFO) Using development mode!
+[2025-02-03 11:50:04] (tkscrsavgui:INFO) Saving settings into file D:\git\2024\tk-screensavers\settings.json
+[2025-02-03 11:50:04] (tkscrsavgui:INFO) Saving settings successful!
+[2025-02-03 11:50:09] (tkscrsavers:INFO) Program starts with parameters: ['D:\\git\\2024\\tk-screensavers\\tkscrsavers.py']
+[2025-02-03 11:50:09] (tkscrsavers:INFO) Looking for settings file D:\git\2024\tk-screensavers\settings.json...
+[2025-02-03 11:50:09] (tkscrsavers:INFO) Settings read successfully!
