@@ -68,9 +68,9 @@ class KrasFire:
 		rgb = f'#{r:02X}{g:02X}{b:02X}'
 
 		# In OpenGL there is: glVertex2f(x * STEP - 1, y * STEP - 1.1)
-		# Update coordiantes from NUM[X,Y]..0 into 0..[WIDTH,HEIGHT]
-		# OpenGL Y coordinate originates from bottom to top in 2D mode
-		x = self.master.map(x, NUMX, 0, 0, self.master.w)
+		# Update coordiantes from 0.. NUMX into 0..WIDTH and NUMY..0 into 0..HEIGHT
+		# OpenGL Y coordinate originates from bottom to top
+		x = self.master.map(x, 0, NUMX, 0, self.master.w)
 		y = self.master.map(y, NUMY, 0, 0, self.master.h)
 		# @2025_02_08_1629 Set fire pixel size dynamically
 		# self.master.setPixel(rgb, x, y, size=20)
