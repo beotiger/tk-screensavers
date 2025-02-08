@@ -33,3 +33,26 @@
 [2025-02-03 11:50:09] (tkscrsavers:INFO) Program starts with parameters: ['D:\\git\\2024\\tk-screensavers\\tkscrsavers.py']
 [2025-02-03 11:50:09] (tkscrsavers:INFO) Looking for settings file D:\git\2024\tk-screensavers\settings.json...
 [2025-02-03 11:50:09] (tkscrsavers:INFO) Settings read successfully!
+[2025-02-03 14:45:15] (tkscrsavers:INFO) Program starts with parameters: ['D:\\git\\2024\\tk-screensavers\\tkscrsavers.py', '/d']
+[2025-02-03 14:45:15] (tkscrsavers:INFO) Looking for settings file D:\git\2024\tk-screensavers\settings.json...
+[2025-02-03 14:45:15] (tkscrsavers:INFO) Settings read successfully!
+[2025-02-03 14:45:15] (tkscrsavers:INFO) Using development mode!
+[2025-02-03 14:45:28] (tkscrsavgui:INFO) Saving settings into file D:\git\2024\tk-screensavers\settings.json
+[2025-02-03 14:45:28] (tkscrsavgui:INFO) Saving settings successful!
+[2025-02-03 14:47:54] (tkscrsavers:INFO) Program starts with parameters: ['D:\\git\\2024\\tk-screensavers\\tkscrsavers.py', '/d']
+[2025-02-03 14:47:54] (tkscrsavers:INFO) Looking for settings file D:\git\2024\tk-screensavers\settings.json...
+[2025-02-03 14:47:54] (tkscrsavers:WARNING) Settings file is not found. Enabling devmode...
+[2025-02-03 14:47:54] (tkscrsavers:INFO) Using development mode!
+[2025-02-03 14:48:05] (tkscrsavgui:INFO) Saving settings into file D:\git\2024\tk-screensavers\settings.json
+[2025-02-03 14:48:05] (tkscrsavgui:INFO) Saving settings successful!
+[2025-02-03 14:48:55] (tkscrsavers:INFO) Looking for settings file D:\git\2024\tk-screensavers\settings.json...
+[2025-02-03 14:48:55] (tkscrsavers:INFO) Settings read successfully!
+[2025-02-03 14:49:05] (tkscrsavgui:INFO) Saving settings into file D:\git\2024\tk-screensavers\settings.json
+[2025-02-03 14:49:05] (tkscrsavgui:INFO) Saving settings successful!
+[2025-02-03 14:49:11] (tkscrsavers:INFO) Looking for settings file D:\git\2024\tk-screensavers\settings.json...
+[2025-02-03 14:49:11] (tkscrsavers:INFO) Settings read successfully!
+[2025-02-03 14:49:19] (tkscrsavgui:INFO) Saving settings into file D:\git\2024\tk-screensavers\settings.json
+[2025-02-03 14:49:19] (tkscrsavgui:INFO) Saving settings successful!
+[2025-02-03 14:49:25] (tkscrsavers:INFO) Program starts with parameters: ['D:\\git\\2024\\tk-screensavers\\tkscrsavers.py']
+[2025-02-03 14:49:25] (tkscrsavers:INFO) Looking for settings file D:\git\2024\tk-screensavers\settings.json...
+[2025-02-03 14:49:25] (tkscrsavers:INFO) Settings read successfully!

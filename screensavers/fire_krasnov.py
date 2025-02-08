@@ -11,18 +11,16 @@
 
 # Import needed libraries here, tkinter is a must obviously
 import random
-import math
 from tkinter import *
 
 # Default width and height of canvas when testing screensaver.
-# Adjust them to your needs
 WIDTH, HEIGHT = 320, 250
 
 # Default screensaver settings.
 # They are used in tkscrsavers.py so we should not change their names
 # but should and must change their values
 app_name = 'Fire demo'
-app_version = '1.0'
+app_version = '1.1'
 app_authors = 'Krasnov M.'
 app_url = 'https://archive.org/details/B-001-031-243-ALL'
 # For the sake of history add date of birth or finishing of your screensaver here
@@ -33,125 +31,21 @@ app_options = {
 	'background': 'black'
 }
 
-class Vector:
-	"""Compact Vector2d class @2024_03_24_1520 updated by Beotiger"""
-	def __init__(self, x=0.0, y=0.0): self.x = x; self.y = y
-	def add(self, v): return Vector(self.x + v.x, self.y + v.y)
-	def sub(self, v): return Vector(self.x - v.x, self.y - v.y)
-	def mul(self, v): return Vector(self.x * v.x, self.y * v.y)
-	def div(self, v): return Vector(self.x / v.x, self.y / v.y)
-	# Magnitude
-	def mag(self): return math.sqrt(self.x * self.x + self.y * self.y)
-	def normalize(self):
-		"""Normalize vector"""
-		mag = self.mag()
-		if mag != 0: return Vector(self.x / mag, self.y / mag)
-		return Vector()
-	# Distance
-	def dist(self, v): return math.sqrt((self.x - v.x) * (self.x - v.x) + (self.y - v.y) * (self.y - v.y))
-	def setMag(self, n):
-		"""Set desired magnitude"""
-		self.normalize()._mul(n)
-		return self
-	def _add(self, n):
-		"""Add vector components by n"""
-		self.x += n
-		self.y += n
-		return self
-	def _sub(self, n):
-		"""Subtruct vector components by n"""
-		self.x -= n
-		self.y -= n
-		return self
-	def _mul(self, n):
-		"""Multiply vector components by n"""
-		self.x *= n
-		self.y *= n
-		return self
-	def _div(self, n):
-		"""Divide vector components by n"""
-		self.x /= n
-		self.y /= n
-		return self
-	def limit(self, limit):
-		return self.normalize().mul(Vector(limit, limit)) if self.mag() > limit else self
-	# Calculates the angle a 2D vector makes with the positive x-axis
-	def heading(self): return math.atan2(self.y, self.x)
-	def __str__(self) -> str:
-		return f'V({round(self.x, 2)}, {round(self.y, 2)})'
-
-class GradientColor:
-	"""This static class let us create gradient colors lists.
-		To use it call GradientColor.linear_gradient(startColor, endColor, numberOfColor)
-		and get its ['hex'] component. All colors must be strings in '#RRGGBB' format.
-
-		Example usage: to get list consists of 30 colors in '#RRGGBB' format
-			which makes gradients from '#1A1BA2' to '#AA2BE2':
-
-			gradColorsList = GradientColor.linear_gradient('#1A1BA2', '#AA2BE2', 30)['hex']
-	"""
-	@staticmethod
-	def hex_to_RGB(hex):
-		""" '#FFFFFF' -> [255,255,255] """
-		# Pass 16 to the integer function for change of base
-		return [int(hex[i:i+2], 16) for i in range(1, 6, 2)]
-
-	@staticmethod
-	def RGB_to_hex(RGB):
-		""" [255,255,255] -> '#FFFFFF' """
-		# Components need to be integers for hex to make sense
-		RGB = [int(x) for x in RGB]
-		return "#"+"".join(["0{0:x}".format(v) if v < 16 else
-							"{0:x}".format(v) for v in RGB])
-
-	@staticmethod
-	def color_dict(gradient):
-		"""Takes in a list of RGB sub-lists and returns dictionary of
-			colors in RGB and hex form for use in a graphing function
-			defined later on"""
-		return {"hex":[GradientColor.RGB_to_hex(RGB) for RGB in gradient],
-				"r":[RGB[0] for RGB in gradient],
-				"g":[RGB[1] for RGB in gradient],
-				"b":[RGB[2] for RGB in gradient]}
-
-	@staticmethod
-	def linear_gradient(start_hex, finish_hex="#FFFFFF", n=10):
-		"""Returns a gradient list of (n) colors between
-			two hex colors. start_hex and finish_hex
-			should be the full six-digit color string,
-			inlcuding the number sign ("#FFFFFF")"""
-		# Starting and ending colors in RGB form
-		s = GradientColor.hex_to_RGB(start_hex)
-		f = GradientColor.hex_to_RGB(finish_hex)
-		# Initilize a list of the output colors with the starting color
-		RGB_list = [s]
-		# Calcuate a color at each evenly spaced value of t from 1 to n
-		for t in range(1, n):
-			# Interpolate RGB vector for color at the current value of t
-			curr_vector = [
-				int(s[j] + (float(t)/(n-1))*(f[j]-s[j]))
-				for j in range(3)
-			]
-			# Add it to our list of output colors
-			RGB_list.append(curr_vector)
-		return GradientColor.color_dict(RGB_list)
-
-# ################################################### #
-# #####  START MAIN FIRE CLASS                   #### #
 STEP = 0.04
 FADE = 0.385
 NUMX = 50
 NUMY = 50
 
 class TCol():
+	"""Represents RGB color from 0 to 1 as in OpenGL"""
 	def __init__(self):
 		self.r = 0.0
 		self.g = 0.0
 		self.b = 0.0
 
 class KrasFire:
+	"""Main class to display fire mimic"""
 	def __init__(self, master):
-		""" Mode: ORIG - original fire, 1PIX - 1 pixels fire """
 		self.PreF = [TCol() for i in range(NUMX)]
 		self.Fire = [[TCol() for i in range(NUMX)] for j in range(NUMY)]
 		self.master = master
@@ -165,16 +59,22 @@ class KrasFire:
 
 	def DrawPix(self, x, y):
 		""" Draw 1 fire pixel """
+		# Convert color from 0..1 (OpenGL) to 0..255
 		r, g, b = int(self.Fire[x][y].r * 255), int(self.Fire[x][y].g * 255), int(self.Fire[x][y].b * 255)
 		r = self.master.constrain(r, 0, 255)
 		g = self.master.constrain(g, 0, 255)
 		b = self.master.constrain(b, 0, 255)
+		# and to hex form #RRGGBB
 		rgb = f'#{r:02X}{g:02X}{b:02X}'
 
-		# glVertex2f(x * STEP - 1, y * STEP - 1.1)
+		# In OpenGL there is: glVertex2f(x * STEP - 1, y * STEP - 1.1)
+		# Update coordiantes from NUM[X,Y]..0 into 0..[WIDTH,HEIGHT]
+		# OpenGL Y coordinate originates from bottom to top in 2D mode
 		x = self.master.map(x, NUMX, 0, 0, self.master.w)
 		y = self.master.map(y, NUMY, 0, 0, self.master.h)
-		self.master.setPixel(rgb, x, y, size=20)
+		# @2025_02_08_1629 Set fire pixel size dynamically
+		# self.master.setPixel(rgb, x, y, size=20)
+		self.master.setPixel(rgb, x, y, size=self.master.w // 50)
 
 	def MixFire(self):
 		for i in range(1, NUMX - 1):
@@ -183,12 +83,9 @@ class KrasFire:
 			self.Fire[i][0].b = (self.PreF[i - 1].b + self.PreF[i + 1].b + self.PreF[i].b) / 3
 		for j in range(1, NUMY - 1):
 				for i in range (1, NUMX - 1):
-					self.Fire[i][j].r = (self.Fire[i-1][j].r + self.Fire[i+1][j].r + self.Fire[i-1][j-1].r + self.Fire[i][j-1].r +
-												self.Fire[i+1][j-1].r + self.Fire[i][j].r) / 5
-					self.Fire[i][j].g = (self.Fire[i-1][j].g + self.Fire[i+1][j].g + self.Fire[i-1][j-1].g + self.Fire[i][j-1].g +
-												self.Fire[i+1][j-1].g + self.Fire[i][j].g) / 5
-					self.Fire[i][j].b = (self.Fire[i-1][j].b + self.Fire[i+1][j].b + self.Fire[i-1][j-1].b + self.Fire[i][j-1].b +
-												self.Fire[i+1][j-1].b + self.Fire[i][j].b) / 5
+					self.Fire[i][j].r = (self.Fire[i-1][j].r + self.Fire[i+1][j].r + self.Fire[i-1][j-1].r + self.Fire[i][j-1].r + self.Fire[i+1][j-1].r + self.Fire[i][j].r) / 5
+					self.Fire[i][j].g = (self.Fire[i-1][j].g + self.Fire[i+1][j].g + self.Fire[i-1][j-1].g + self.Fire[i][j-1].g + self.Fire[i+1][j-1].g + self.Fire[i][j].g) / 5
+					self.Fire[i][j].b = (self.Fire[i-1][j].b + self.Fire[i+1][j].b + self.Fire[i-1][j-1].b + self.Fire[i][j-1].b + self.Fire[i+1][j-1].b + self.Fire[i][j].b) / 5
 
 	def FireUp(self):
 		for j in range(NUMY - 1, 0, -1):
@@ -207,9 +104,6 @@ class KrasFire:
 		self.MixFire()
 		self.DrawFire()
 		self.FireUp()
-
-# #####  FINISH MAIN FIRE CLASS                  #### #
-# ################################################### #
 
 class Main:
 	"""Main canvas class where all animation occurs"""
@@ -276,8 +170,6 @@ class Main:
 		pass
 	def resize(self, evt):
 		"""Event: resize canvas"""
-		# print('Resize event called, evt:')
-		# print(f'evt.width={evt.width}, evt.height={evt.height}, evt.widget={evt.widget}')
 		# Get new canvas dimensions from new main window size
 		nw, nh = self.canvas.master.winfo_width(), self.canvas.master.winfo_height()
 		# And recreate canvas size accordingly
@@ -295,20 +187,14 @@ class Main:
 		"""Initialise any options"""
 		# Store new width/height of the canvas
 		self.w, self.h = self.canvas.winfo_width(), self.canvas.winfo_height()
-		"""Init code here
-		...
-		"""
-		# Зажгём наш олимпийский огнь!
+		# Light up our olympic fire!
 		self.fire = KrasFire(self)
 
 	def update(self):
 		"""Main update routine"""
 		if self.running:
-			# Clear canvas if needed
+			# Clear all canvas
 			self.canvas.delete('all')
-			"""Do animation cycle here
-			...
-			"""
 			self.fire.TickFire()
 
 class TkScreenSaver:
@@ -317,24 +203,7 @@ class TkScreenSaver:
 	def __init__(self, scrsaver, options, timer=0):
 		"""
 			Init application then run game loop.
-
 			Use scrsaver.win as Toplevel window.
-
-			scrsaver.monitor lets you run screensaver on several monitors at once
-			for it is called for every monitor user has.
-			monitor has width and height attributes indicating its sizes
-			which we can and should use to draw our animation.
-
-			@options is a dict of options screensaver should use.
-
-			@timer when not zero indicates when screensaver should stop.
-			timer is in seconds, if it is equal to zero
-			screensaver should work until some external events arise -
-			usually any key press or mouse move.
-			External events are binded in tkscrsavers.py before screensaver call.
-
-			As a rule screensaver is called in full screen size
-			with mouse cusror hidden and without borders.
 		"""
 		self.root = scrsaver.win
 		self.root.protocol('WM_DELETE_WINDOW', self.fin)
