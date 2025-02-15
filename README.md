@@ -5,6 +5,22 @@ First of all let me acknowledge one project at Github [Save-O-Clock](https://git
 
 Why have I chosen Save-O-Clock? Hmmmmm, I just downloaded it, learned a bit code and compiled it as was written in its `README.md` file. And in a couple of minutes I got a real working screensaver which I could install and use in my `Windows(tm) 10` system as I've always wished.
 
+# Fast start [2025_02_15]
+
+If you do not wish to dive deep into all this stuff just run these several commands to have screeen savers in your Windows(tm) system:
+
+```sh
+git clone https://github.com/beotiger/tk-screensavers.git
+cd tk-screensavers
+build
+install
+```
+
+Then right click somewhere on empty part of your Desktop, choose `Personalize` from drop-down menu, find section `Lock screen` and link `Screen saver settings`.
+Choose `tkscrsavers` from the list and click button `Apply`!
+
+Hope this works as fine for you as it works for me!
+
 # Tk Screensavers - prelude
 
 It is a project to make and use screensavers for `Windows(tm)` particularly. Note `s` at the end of word `screensavers` - that is. I wanted not just write one screensaver and use it as usual, but have a bunch of customizable screensavers that could be easily written in `Python` language and used anywhere on `Windows(tm)` systems in order to form a large neverending animation cycling on your desktop while you speak on your phone or drink a cup of coffee.
