@@ -7,11 +7,15 @@ Why have I chosen Save-O-Clock? Hmmmmm, I just downloaded it, learned a bit code
 
 # Fast start [2025_02_15]
 
-If you do not wish to dive deep into all this stuff just run these several commands to have screeen savers in your Windows(tm) system:
+If you do not wish to dive deep into all this stuff just run these several commands to have screeen savers in your Windows(tm) system.
+
+`Note`. You should have `python` and `pip` binaries installed on your system.
 
 ```sh
 git clone https://github.com/beotiger/tk-screensavers.git
 cd tk-screensavers
+pip install --user pipenv
+pipenv install --dev
 build
 install
 ```
